@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+
+	<script>
+		var app = angular.module('todo', ['ngRoute']);
+		app.controller('userCtrl', function(userService) {
+				
+
+			this.save = function() {
+				userService.add(this.login);
+				console.log('User added ' + this.login);	
+			};		
+		});
+
+		app.factory('userService', function() {
+		
+
+			return {
+				users: [],
+				add: function(user) {
+					this.users.push(user);
+				}
+			}	
+		});
+
+		app.controller('listCtrl', function(userService) {
+			this.users = userService.users;		
+	
+		});
+
+		app.config(function($routeProvider) {
+			$routeProvider.
+				when('/', {
+					templateUrl: 'user-edit.html',
+					controller: 'userCtrl',
+					controllerAs: 'c'
+				}).
+				when('/users', {
+					templateUrl: 'users.html',
+					controller: 'listCtrl',
+					controllerAs: 'c'
+				});	
+		});
+		
+	</script>
+
+	<meta charset="UTF-8">
+
+</head>
+<body ng-app="todo">
+  
+<div ng-view>
+
+
+
+
+</body>
+</html> 
