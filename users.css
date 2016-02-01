@@ -1,0 +1,26 @@
+.user-form{
+	padding: 20px;
+	border-spacing: 0;
+	cell-padding: 0;
+}
+
+.user-form td{
+	border-top: 1px solid #DDDDDD;
+}
+
+.user-form td:first-child{
+	padding-right: 0;
+}
+
+.user-form tr:last-child > td{
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.user-form input{
+	border: 1px solid transparent;
+}
+
+.user-form input:focus{
+	border: 1px solid;
+}
+

@@ -1,5 +1,25 @@
 <div>
 	<ul>
-		<li ng-repeat="user in c.users">{{user}}</li>
+		<li ng-repeat="user in ctrl.users">{{user}}</li>
 	</ul>
+	<div class="dashboard">
+		<div>Użytkownik</div>
+		<select>
+			<option ng-repeat="user in ctrl.users">{{user}}</option>
+		</select>
+		<button ng-click="ctrl.create()" class="create">Create</button>
+		<button ng-click="ctrl.edit()" class="edit">Edit</button>
+		<button ng-click="ctrl.save()" class="save">Save</button>
+		<button ng-click="ctrl.reload()" class="reload">Reload</button>
+		<button ng-click="ctrl.delete()" class="delete">Delete</button>
+	</div>
+	<table class="user-form">
+		<tr><td>Login</td><td><input type="text" ng-model="ctrl.login"></td></tr>
+		<tr><td>Hasło</td><td><input type="text" ng-model="ctrl.passwod"></td></tr>
+		<tr><td>Potwierdź hasło</td><td><input type="text"></td></tr>
+		<tr><td>Email</td><td><input type="text" ng-model="ctrl.email"></td></tr>
+		<tr><td>Imię</td><td><input type="text" ng-model="ctrl.firstname"></td></tr>
+		<tr><td>Nazwisko</td><td><input type="text" ng-model="ctrl.surname"></td></tr>
+		<tr><td>Zablokowany</td><td><input type="checkbox" ng-model="ctrl.blocked" value="true"></td></tr>
+	</table>
 </div>
